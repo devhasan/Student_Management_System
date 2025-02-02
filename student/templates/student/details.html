@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="card mx-auto" style="width: 25rem">
+  <h5>Detail Information of {{student.first_name}} {{student.last_name}}</h5>
+
+  <img src="{{student.photo.url}}" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5 class="card-title">{{student.first_name}} {{student.last_name}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Email: {{student.email}}</li>
+    <li class="list-group-item">Phone: {{student.phone}}</li>
+    <li class="list-group-item">Course: {{student.course}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{% url 'home' %}" type="button" class="btn btn-primary">Back</a>
+    <a
+      href="{% url 'update_student' id=student.id %}"
+      type="button"
+      class="btn btn-warning"
+      >Edit</a
+    >
+    <a
+      href="{% url 'delete_student' id=student.id %}"
+      type="button"
+      class="btn btn-danger"
+      >Delete</a
+    >
+  </div>
+</div>
+
+{% endblock %}
